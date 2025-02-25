@@ -21,22 +21,19 @@ Currently, the repository includes four tasks under `Web_App_Tests`, each demons
 soar/
 ├── Web_App_Tests/
 │   ├── Task_1/
-│   │   └── test_task1.py  # Test Task 1 Solution
+│   │   └── test_task1.py  # Web test for Task 1
 │   ├── Task_2/
-│   │   └── test_task2.py  # Test Task 2 Solution
+│   │   └── test_task2.py  # Web test for Task 2
 │   ├── Task_3/
-│   │   └── test_task3.py  # Test Task 3 Solution
-│   └── Task_4/
-│       └── test_task4.py  # Test Task 4 Solution
+│   │   └── test_task3.py  # Web test for Task 3
+│   ├── Task_4/
+│   │   └── test_task4.py  # Web test for Task 4
 ├── Mob_App_Tests/
 │   ├── Task_1/
-│   │   └── test_task1.py  # mobile task 1
-│   ├── Task_2/
-│   │   └── test_task2.py  # mobile task 2
+│   │   └── test_task1.py  # Placeholder for mobile test
 │   └── ...
-├── requirements.txt       # Lists Python dependencies
-├── README.md              # Project overview and instructions
-└── .gitignore             # Optional: excludes unnecessary files
+├── requirements.txt       # Python dependencies
+└── README.md              # Project documentation
 
 ## Setup Instructions
 1. **Prerequisites**: Ensure Python 3.x is installed on your system.
