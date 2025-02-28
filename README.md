@@ -27,9 +27,7 @@ Follow these steps to set up and run the tests on your local machine. Instructio
    - Ensure Python 3.x is installed (check with `python --version`).
 
 2. **Clone the Repository**:
-
 git clone https://github.com/sheikhaatir/soar.git
-
 Navigate to the root directory: 
 cd soar
 
@@ -107,20 +105,26 @@ pytest Mob_App_Tests/
 
 ## Project Structure 
 soar/
+├── app/                # Contains the .apk file for mobile testing
+│   └── org.wikipedia.alpha.apk    # Provided mobile app binary
 ├── Web_App_Tests/
 │   ├── Task_1/
-│   │   └── test_task1.py  # Web test for Task 1
+│   │   └── test_task1.py  # Web test for Task 1 (Juice Shop)
 │   ├── Task_2/
-│   │   └── test_task2.py  # Web test for Task 2
+│   │   └── test_task2.py  # Web test for Task 2 (Juice Shop)
 │   ├── Task_3/
-│   │   └── test_task3.py  # Web test for Task 3
-│   ├── Task_4/
-│   │   └── test_task4.py  # Web test for Task 4
+│   │   └── test_task3.py  # Web test for Task 3 (Juice Shop) [Placeholder]
+│   └── Task_4/
+│       └── test_task4.py  # Web test for Task 4 (Juice Shop) [Placeholder]
 ├── Mob_App_Tests/
 │   ├── Task_1/
-│   │   └── test_task1.py  # Placeholder for mobile test
-│   └── ...
-├── requirements.txt       # Python dependencies
-└── README.md              # Project documentation
-
-
+│   │   └── test_mob_task1.py  # Mobile test for Task 1 (Wikipedia Alpha)
+│   ├── Task_2/
+│   │   └── test_mob_task2.py  # Mobile test for Task 2 (Wikipedia Alpha)
+│   └── Task_3/
+│       └── test_mob_task3.py  # Mobile test for Task 3 (Wikipedia Alpha)
+├── conftest.py         # Centralized Pytest fixtures (e.g., WebDriver setup)
+├── .gitignore          # Excludes virtual env, cache, and IDE files
+├── pytest.ini          # Pytest configuration
+├── README.md           # Project documentation
+└── requirements.txt    # Python dependencies
