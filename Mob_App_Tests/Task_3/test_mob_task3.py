@@ -1,4 +1,4 @@
-#Task 2 
+#Task 3
 import time
 from appium import webdriver
 from selenium.webdriver.common.by import By
@@ -40,28 +40,34 @@ class TestMobileApp:
 
     def test_search_bar(self, driver):
             try:
-                search_tab = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("org.wikipedia.alpha:id/fragment_feed_header")')))
-                search_tab.click() 
-                search_input = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("org.wikipedia.alpha:id/search_src_text")')))
-                search_input.click()
-                #search_input.clear()
-                time.sleep(3)
-                search_input.send_keys("New York")
-                print("✅ Successfully entered 'New York' in the search bar")
-                #ASSERTION 
-                search_results = WebDriverWait(driver, 10).until(EC.presence_of_element_located((AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("org.wikipedia.alpha:id/page_list_item_title")')))
-                assert search_results.is_displayed(), "❌ Search results did not appear!"
-                print("✅ Search results appeared successfully!")
-
+                ellipses = driver.find_element(By.ID, "org.wikipedia.alpha:id/menu_overflow_button")
+                ellipses.click()
+                
+                settings_option = driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("org.wikipedia.alpha:id/explore_overflow_settings")')
+                settings_option.click()
+                
+                print("✅ Settings page opened successfully")
+                time.sleep(2)
+                
             except Exception as e:
                 pytest.fail(f"❌ Test Failed: {e}")
-            try:
-                close_button = driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("org.wikipedia.alpha:id/search_close_btn")')
-                close_button.click()
-                time.sleep(3)
-                close_button.click()
-                print("✅ Successfully clicked the close button")
-                print("✅ Returned to Home Page!")
+                
+            try: 
+                toggles = driver.find_elements(AppiumBy.CLASS_NAME, "android.widget.Switch")
+                print('⚙️  Total toggles ', len(toggles))
+                
+                for toggle in toggles:
+                    if toggle.get_attribute("checked") == "true":
+                        toggle.click()
+                        print("✅ Toggle switched off successfully")
+                        
+            except Exception as e:
+                pytest.fail(f"❌ Test Failed: {e}")
+                
+            try: 
+                back_button = driver.find_element(AppiumBy.CLASS_NAME, 'android.widget.ImageButton')
+                back_button.click()
+                print("✅ Successfully navigated back to the main screen")
             except Exception as e:
                 pytest.fail(f"❌ Test Failed: {e}")
                 
